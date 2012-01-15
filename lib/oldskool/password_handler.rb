@@ -2,8 +2,6 @@ require 'passmakr'
 
 module Oldskool
   class PasswordHandler
-    include Utils
-
     def initialize(params, keyword, config)
       @params = params
       @keyword = keyword
@@ -11,12 +9,16 @@ module Oldskool
       self
     end
 
+    def plugin_template(template)
+      File.read(File.expand_path("../../../views/#{template}.erb", __FILE__))
+    end
+
     def handle_request(keyword, query)
       len = Integer(query) rescue 8
 
       pw = Passmakr.new(:phonemic, len)
 
-      {:template => plugin_template(:password, __FILE__), :pw => pw}
+      {:template => plugin_template(:password), :pw => pw}
     end
   end
 end

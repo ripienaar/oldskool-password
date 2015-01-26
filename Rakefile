@@ -3,7 +3,7 @@ require 'rake/gempackagetask'
 
 spec = Gem::Specification::new do |spec|
   spec.name = "oldskool-password"
-  spec.version = "0.0.2"
+  spec.version = "0.0.3"
   spec.platform = Gem::Platform::RUBY
   spec.summary = "oldskool-password"
   spec.description = "description: Generate random passwords in Oldskool using the passmakr gem"
